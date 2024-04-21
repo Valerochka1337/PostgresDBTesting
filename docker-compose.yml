@@ -7,7 +7,7 @@ services:
     restart: always
     volumes:
       - ./pgdata:/var/lib/postgresql/data
-      - ./roles_permissions_gen.sh:/docker-entrypoint-initdb.d/roles_permissions_gen.sh
+      - ./gen/roles_permissions_gen.sh:/docker-entrypoint-initdb.d/roles_permissions_gen.sh
     environment:
       POSTGRES_DB: "untappd_db"
       POSTGRES_USER: "postgres"
@@ -47,7 +47,7 @@ services:
       flyway:
         condition: service_completed_successfully
     volumes:
-      - .:/src
+      - ./gen:/src
     environment:
       USERS_NUM: 1000000
       GENERATE_WITH_CLEANING: "false"
