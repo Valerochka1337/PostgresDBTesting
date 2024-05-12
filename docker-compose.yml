@@ -15,7 +15,7 @@ services:
     ports:
       - "5432:5432"
     entrypoint: > 
-      /bin/bash -c "chmod a+x /docker-entrypoint-initdb.d/* &&
+      /bin/bash -c "chmod +x /docker-entrypoint-initdb.d/* &&
       docker-entrypoint.sh postgres"
 
   flyway:
