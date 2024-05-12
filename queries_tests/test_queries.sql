@@ -10,7 +10,7 @@ ORDER BY style_rating DESC;
 
 SELECT users.user_id,
        users.username,
-       COUNT(DISTINCT friendships.friendship_id)  AS friends_count,
+       COUNT(DISTINCT friendships.user2_id)  AS friends_count,
        COUNT(DISTINCT achievements.achievement_id) AS achievements_count
 FROM untappd_db.users AS users
          JOIN untappd_db.friendships friendships
